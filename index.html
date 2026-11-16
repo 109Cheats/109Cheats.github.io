@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>109 Cheats | Panel Oficial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gamer: {
+                            bg: '#030711',
+                            card: '#070e1d',
+                            surface: '#0b1429',
+                            border: '#162442',
+                            primary: '#3b82f6',
+                            accent: '#38bdf8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        gamer: ['Rajdhani', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #030711;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            touch-action: manipulation;
+            -webkit-text-size-adjust: 100%;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 55%),
+                radial-gradient(circle at 90% 90%, rgba(56, 189, 248, 0.04) 0%, transparent 40%);
+        }
+        button, input, select {
+            touch-action: manipulation;
+        }
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030711;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #162442;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
+
+    <!-- ================= MODAL DE ACTIVACIÓN DE KEY ================= -->
+    <div id="key-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-[#02050c]/85 backdrop-blur-md p-4 hidden">
+        <div class="bg-[#070e1d] border border-[#1a2b4d] p-8 rounded-3xl w-full max-w-md shadow-2xl shadow-blue-950/50 relative">
+            <div class="text-[11px] font-mono text-blue-400 uppercase tracking-[0.2em] mb-1.5">109 CHEATS / ACCESO</div>
+            <h2 class="text-2xl font-bold tracking-tight mb-1.5 text-white">Activar mi key</h2>
+            <p class="text-slate-400 text-sm mb-6">Introduce tu key para solicitar la validación de acceso.</p>
+
+            <form id="key-form" onsubmit="verifyKey(event)" class="space-y-3.5">
+                <input type="text" id="key-input" placeholder="109-FF-K01-X" required
+                    class="w-full bg-[#030711] border border-[#233863] rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 font-mono text-sm tracking-wider transition-all">
+                
+                <button type="submit" class="w-full py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg shadow-blue-600/25 active:scale-[0.99]">
+                    Verificar key
+                </button>
+            </form>
+
+            <div id="key-error" class="hidden mt-4 p-3 bg-red-950/40 border border-red-500/30 text-red-400 text-xs rounded-xl text-center">
+                <span id="error-text">Key inválida o ya utilizada.</span>
+            </div>
+
+            <button onclick="closeKeyModal()" class="w-full mt-3 py-3.5 bg-[#0b1429] hover:bg-[#111f3d] text-slate-200 font-semibold text-sm rounded-xl transition-all border border-[#1a2b4d]">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= LANDING PAGE (INICIO) ================= -->
+    <div id="landing-page" class="flex flex-col min-h-screen">
+        <!-- HEADER -->
+        <header class="border-b border-[#162442]/60 bg-[#030711]/80 backdrop-blur-md sticky top-0 z-40">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="returnToLanding()">
+                    <div class="w-10 h-10 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center overflow-hidden shadow-md">
+                        <img src="image_41901b.png" alt="109" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'font-gamer text-blue-400 font-black text-base\'>109</span>'">
+                    </div>
+                    <div>
+                        <h1 class="font-gamer text-xl font-bold tracking-wider text-white leading-none">109 CHEATS</h1>
+                        <p class="text-[10px] text-blue-400/80 font-mono tracking-[0.2em] uppercase mt-1">Gaming Platform</p>
+                    </div>
+                </div>
+
+                <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-400">
+                    <a href="#inicio" class="text-white hover:text-blue-400 transition-colors">Inicio</a>
+                    <a href="#secciones" class="hover:text-blue-400 transition-colors">Secciones</a>
+                    <a href="#info" class="hover:text-blue-400 transition-colors">Información</a>
+                    <a href="https://discord.gg/dVCUqShaH" target="_blank" class="hover:text-blue-400 transition-colors">Soporte</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <main id="inicio" class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-16">
+            <div class="text-center max-w-2xl mx-auto space-y-5 pt-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-[#070e1d] border border-[#162442] rounded-full text-slate-300 text-[11px] font-mono uppercase tracking-widest">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span> PLATAFORMA / GAMING
+                </div>
+                
+                <h2 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-white font-gamer uppercase">
+                    109 CHEATS
+                </h2>
+                
+                <p class="text-slate-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+                    Consulta recursos, compatibilidad, estado de servicios, versiones y novedades de 109 Cheats desde una plataforma organizada.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-3.5 pt-3">
+                    <button onclick="openKeyModal()" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-600/25 text-sm">
+                        Activar mi key
+                    </button>
+                    <a href="https://discord.gg/dVCUqShaH" target="_blank" class="px-6 py-3 bg-[#070e1d] hover:bg-[#0d1933] border border-[#1a2b4d] text-white font-semibold rounded-xl transition-all text-sm flex items-center gap-2">
+                        <i class="fa-brands fa-discord text-blue-400"></i> Discord
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARDS INFO -->
+            <div id="secciones" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="bg-[#070e1d]/90 border border-[#162442] hover:border-blue-500/40 p-6 rounded-2xl space-y-3.5 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400">
+                        <i class="fa-solid fa-layer-group text-sm"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Recursos organizados</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Enlaces identificados por nombre, dispositivo, versión y disponibilidad en tiempo real.</p>
+                </div>
+
+                <div class="bg-[#070e1d]/90 border border-[#162442] hover:border-blue-500/40 p-6 rounded-2xl space-y-3.5 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400">
+                        <i class="fa-solid fa-shield-halved text-sm"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Información transparente</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Consulta el estado publicado de cada recurso y sus requisitos antes de abrirlo.</p>
+                </div>
+
+                <div class="bg-[#070e1d]/90 border border-[#162442] hover:border-blue-500/40 p-6 rounded-2xl space-y-3.5 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400">
+                        <i class="fa-solid fa-arrow-up-from-bracket text-sm"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Acceso sencillo</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Secciones claras para versiones 3105, aimbot, hologramas, activación y soporte.</p>
+                </div>
+            </div>
+
+            <!-- FOOTER INFO BOX -->
+            <div id="info" class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#070e1d]/90 border border-[#162442] p-8 rounded-2xl">
+                <div class="flex flex-col justify-center">
+                    <span class="text-[11px] font-mono text-blue-400 uppercase tracking-[0.15em]">QUÉ ES 109 CHEATS</span>
+                    <h4 class="text-2xl sm:text-3xl font-bold text-white mt-2 mb-3 tracking-tight">Una plataforma clara para tu dispositivo.</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Aquí encontrarás la información de las versiones disponibles, los recursos publicados y las instrucciones de acceso directo.</p>
+                </div>
+                <div class="border-t md:border-t-0 md:border-l border-[#162442] md:pl-8 pt-6 md:pt-0 space-y-3.5">
+                    <span class="text-[11px] font-mono text-blue-400 uppercase tracking-[0.15em]">INFORMACIÓN DE PLATAFORMA</span>
+                    <div class="flex justify-between text-xs sm:text-sm py-2 border-b border-[#111d38]">
+                        <span class="text-slate-400">Plataformas</span>
+                        <span class="text-white font-medium">iOS / Android</span>
+                    </div>
+                    <div class="flex justify-between text-xs sm:text-sm py-2 border-b border-[#111d38]">
+                        <span class="text-slate-400">Catálogos privados</span>
+                        <span class="text-white font-medium">3105 / Aimbot / Hologramas</span>
+                    </div>
+                    <div class="flex justify-between text-xs sm:text-sm py-2">
+                        <span class="text-slate-400">Estado de la web</span>
+                        <span class="text-cyan-400 font-medium">Interfaz disponible</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= PANEL PRINCIPAL (CATÁLOGO / RECURSOS) ================= -->
+    <div id="main-panel" class="hidden flex-col min-h-screen">
+        <!-- HEADER PANEL -->
+        <header class="border-b border-[#162442]/60 bg-[#030711]/90 backdrop-blur-md sticky top-0 z-40">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="filterByCategory('all')">
+                    <div class="w-10 h-10 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center overflow-hidden shadow-md">
+                        <img src="image_41901b.png" alt="109" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'font-gamer text-blue-400 font-black text-base\'>109</span>'">
+                    </div>
+                    <div>
+                        <h1 class="font-gamer text-xl font-bold tracking-wider text-white leading-none">109 CHEATS</h1>
+                        <p class="text-[10px] text-blue-400/80 font-mono tracking-[0.2em] uppercase mt-1">Gaming Platform</p>
+                    </div>
+                </div>
+
+                <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-400">
+                    <button onclick="filterByCategory('all')" class="text-white hover:text-blue-400 transition-colors">Catálogo</button>
+                    <button onclick="filterByCategory('3105')" class="hover:text-blue-400 transition-colors">3105</button>
+                    <button onclick="filterByCategory('aimbot')" class="hover:text-blue-400 transition-colors">Aimbot</button>
+                    <button onclick="filterByCategory('holograma')" class="hover:text-blue-400 transition-colors">Hologramas</button>
+                    <a href="https://discord.gg/dVCUqShaH" target="_blank" class="hover:text-blue-400 transition-colors">Discord</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- CONTENIDO DEL CATÁLOGO -->
+        <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+            <div>
+                <span class="text-[11px] font-mono text-blue-400 uppercase tracking-[0.2em]">CATÁLOGO ACTIVO</span>
+                <h2 class="text-3xl font-bold text-white mt-1 tracking-tight">Recursos 109 Cheats</h2>
+                <p class="text-slate-400 text-sm mt-1">Este catálogo aparece después de verificar una key autorizada.</p>
+            </div>
+
+            <!-- PANEL DE SESIÓN / ESTADO -->
+            <div class="bg-[#070e1d] border border-[#162442] rounded-2xl p-6 space-y-4">
+                <div class="flex justify-between items-center text-xs sm:text-sm pb-3 border-b border-[#111d38]">
+                    <span class="text-slate-400">Plan activo</span>
+                    <span id="active-plan-label" class="text-white font-semibold">Gratis</span>
+                </div>
+                <div class="flex justify-between items-center text-xs sm:text-sm pb-3 border-b border-[#111d38]">
+                    <span class="text-slate-400">Sesión</span>
+                    <span class="text-slate-300">Key verificada en esta página</span>
+                </div>
+                <div class="flex flex-wrap gap-3 pt-1">
+                    <button onclick="returnToLanding()" class="px-4 py-2 bg-[#0b1429] hover:bg-[#111f3d] border border-[#1a2b4d] text-white text-xs sm:text-sm font-medium rounded-xl transition-all">
+                        Volver al panel
+                    </button>
+                    <button onclick="openKeyModal()" class="px-4 py-2 bg-[#0b1429] hover:bg-[#111f3d] border border-[#1a2b4d] text-white text-xs sm:text-sm font-medium rounded-xl transition-all">
+                        Cambiar key
+                    </button>
+                    <button onclick="logoutPanel()" class="px-4 py-2 bg-[#0b1429] hover:bg-red-950/40 border border-[#1a2b4d] hover:border-red-500/40 text-slate-300 hover:text-red-400 text-xs sm:text-sm font-medium rounded-xl transition-all">
+                        Cerrar acceso
+                    </button>
+                </div>
+            </div>
+
+            <!-- BARRA DE BÚSQUEDA Y SELECTOR -->
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <div class="relative flex-grow">
+                    <input type="text" id="search-input" oninput="filterResources()" placeholder="Buscar por nombre, versión o descripción..."
+                        class="w-full bg-[#070e1d] border border-[#162442] rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-all">
+                </div>
+                <div class="sm:w-64">
+                    <select id="device-filter" onchange="filterResources()" class="w-full bg-[#070e1d] border border-[#162442] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-all">
+                        <option value="all">Todas las categorías</option>
+                        <option value="3105">Apartado 3105</option>
+                        <option value="aimbot">Módulos Aimbot</option>
+                        <option value="holograma">Hologramas</option>
+                        <option value="saved">★ Guardados</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-xs text-slate-400">Mostrando <span id="resource-count" class="text-white font-semibold">6</span> de 6 recursos</div>
+
+            <!-- GRID DE RECURSOS -->
+            <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- Recurso 1 -->
+                <div class="resource-card bg-[#070e1d] border border-[#162442] rounded-2xl p-5 flex flex-col justify-between gap-4 hover:border-blue-500/40 transition-all" data-id="res-1" data-name="3105 ios 26" data-category="3105">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-11 h-11 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+                                <i class="fa-solid fa-shield-halved text-base"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-white text-sm tracking-wide uppercase">3105 IOS 26</h4>
+                                <div class="text-xs text-slate-400">
+                                    <span class="text-slate-300 font-medium">Dispositivo:</span> iPhone &nbsp; <span class="text-slate-300 font-medium">Versión:</span> iOS 26 (.ipa)
+                                </div>
+                                <p class="text-slate-500 text-xs pt-0.5">Archivo de configuración y complementos listos para descarga directa.</p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 uppercase shrink-0">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ONLINE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2.5 pt-1">
+                        <a href="https://www.mediafire.com/file/mzjbgp6h9pak9us/3105_ios_26_109.ipa/file" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-blue-600/20">
+                            Descargar recurso
+                        </a>
+                        <span class="text-[10px] font-mono px-2.5 py-1.5 bg-[#0b1429] border border-[#1a2b4d] text-slate-400 rounded-lg uppercase">3105</span>
+                        <button onclick="toggleSave('res-1', this)" class="save-btn px-3 py-1.5 bg-[#0b1429] hover:bg-[#111f3d] border border-[#1a2b4d] text-slate-300 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-regular fa-star text-xs"></i> <span>Guardar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recurso 2 -->
+                <div class="resource-card bg-[#070e1d] border border-[#162442] rounded-2xl p-5 flex flex-col justify-between gap-4 hover:border-blue-500/40 transition-all" data-id="res-2" data-name="3105 ios 27" data-category="3105">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-11 h-11 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+                                <i class="fa-solid fa-shield-halved text-base"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-white text-sm tracking-wide uppercase">3105 IOS 27</h4>
+                                <div class="text-xs text-slate-400">
+                                    <span class="text-slate-300 font-medium">Dispositivo:</span> iPhone &nbsp; <span class="text-slate-300 font-medium">Versión:</span> iOS 27 (.ipa)
+                                </div>
+                                <p class="text-slate-500 text-xs pt-0.5">Versión actualizada 3105 para dispositivos iOS compatibles.</p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 uppercase shrink-0">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ONLINE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2.5 pt-1">
+                        <a href="https://www.mediafire.com/file/gcjleoxht62rh7i/3105_ios_27.ipa/file" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-blue-600/20">
+                            Descargar recurso
+                        </a>
+                        <span class="text-[10px] font-mono px-2.5 py-1.5 bg-[#0b1429] border border-[#1a2b4d] text-slate-400 rounded-lg uppercase">3105</span>
+                        <button onclick="toggleSave('res-2', this)" class="save-btn px-3 py-1.5 bg-[#0b1429] hover:bg-[#111f3d] border border-[#1a2b4d] text-slate-300 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-regular fa-star text-xs"></i> <span>Guardar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recurso 3 -->
+                <div class="resource-card bg-[#070e1d] border border-[#162442] rounded-2xl p-5 flex flex-col justify-between gap-4 hover:border-blue-500/40 transition-all" data-id="res-3" data-name="pecho disimulado" data-category="aimbot">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-11 h-11 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+                                <i class="fa-solid fa-crosshairs text-base"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-white text-sm tracking-wide uppercase">PECHO DISIMULADO</h4>
+                                <div class="text-xs text-slate-400">
+                                    <span class="text-slate-300 font-medium">Tipo:</span> Patch &nbsp; <span class="text-slate-300 font-medium">Versión:</span> Todas las versiones
+                                </div>
+                                <p class="text-slate-500 text-xs pt-0.5">Herramienta de precisión con asistencia al pecho optimizada y discreta.</p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 uppercase shrink-0">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ONLINE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2.5 pt-1">
+                        <a href="https://www.mediafire.com/file/ae06yfh4thw0rjn/Pechito_disimulado_109.3105/file" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-blue-600/20">
+                            Descargar recurso
+                        </a>
+                        <span class="text-[10px] font-mono px-2.5 py-1.5 bg-[#0b1429] border border-[#1a2b4d] text-slate-400 rounded-lg uppercase">AIMBOT</span>
+                        <button onclick="toggleSave('res-3', this)" class="save-btn px-3 py-1.5 bg-[#0b1429] hover:bg-[#111f3d] border border-[#1a2b4d] text-slate-300 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-regular fa-star text-xs"></i> <span>Guardar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recurso 4 -->
+                <div class="resource-card bg-[#070e1d] border border-[#162442] rounded-2xl p-5 flex flex-col justify-between gap-4 hover:border-blue-500/40 transition-all" data-id="res-4" data-name="aimbot cuello" data-category="aimbot">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-11 h-11 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+                                <i class="fa-solid fa-crosshairs text-base"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-white text-sm tracking-wide uppercase">AIMBOT CUELLO</h4>
+                                <div class="text-xs text-slate-400">
+                                    <span class="text-slate-300 font-medium">Tipo:</span> Config &nbsp; <span class="text-slate-300 font-medium">Versión:</span> Todas las versiones
+                                </div>
+                                <p class="text-slate-500 text-xs pt-0.5">Configuración avanzada enfocada en la zona superior del oponente.</p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 uppercase shrink-0">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ONLINE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2.5 pt-1">
+                        <a href="https://www.mediafire.com/file/uh92jqiipjc8h5h/Aimcuello109.3105/file" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-blue-600/20">
+                            Descargar recurso
+                        </a>
+                        <span class="text-[10px] font-mono px-2.5 py-1.5 bg-[#0b1429] border border-[#1a2b4d] text-slate-400 rounded-lg uppercase">AIMBOT</span>
+                        <button onclick="toggleSave('res-4', this)" class="save-btn px-3 py-1.5 bg-[#0b1429] hover:bg-[#111f3d] border border-[#1a2b4d] text-slate-300 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-regular fa-star text-xs"></i> <span>Guardar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recurso 5 -->
+                <div class="resource-card bg-[#070e1d] border border-[#162442] rounded-2xl p-5 flex flex-col justify-between gap-4 hover:border-blue-500/40 transition-all" data-id="res-5" data-name="balas magicas" data-category="aimbot">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-11 h-11 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+                                <i class="fa-solid fa-crosshairs text-base"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-white text-sm tracking-wide uppercase">BALAS MÁGICAS</h4>
+                                <div class="text-xs text-slate-400">
+                                    <span class="text-slate-300 font-medium">Tipo:</span> Mod &nbsp; <span class="text-slate-300 font-medium">Versión:</span> Todas las versiones
+                                </div>
+                                <p class="text-slate-500 text-xs pt-0.5">Modificación de trayectoria de proyectiles para máximo impacto.</p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 uppercase shrink-0">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ONLINE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2.5 pt-1">
+                        <a href="https://www.mediafire.com/file/tfkkscx0udfo42k/Sinmarcasbalas109.3105/file" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-blue-600/20">
+                            Descargar recurso
+                        </a>
+                        <span class="text-[10px] font-mono px-2.5 py-1.5 bg-[#0b1429] border border-[#1a2b4d] text-slate-400 rounded-lg uppercase">AIMBOT</span>
+                        <button onclick="toggleSave('res-5', this)" class="save-btn px-3 py-1.5 bg-[#0b1429] hover:bg-[#111f3d] border border-[#1a2b4d] text-slate-300 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-regular fa-star text-xs"></i> <span>Guardar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recurso 6 -->
+                <div class="resource-card bg-[#070e1d] border border-[#162442] rounded-2xl p-5 flex flex-col justify-between gap-4 hover:border-blue-500/40 transition-all" data-id="res-6" data-name="holograma" data-category="holograma">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-11 h-11 rounded-xl bg-[#0b1429] border border-[#1a2b4d] flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+                                <i class="fa-solid fa-cube text-base"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-white text-sm tracking-wide uppercase">HOLOGRAMA</h4>
+                                <div class="text-xs text-slate-400">
+                                    <span class="text-slate-300 font-medium">Tipo:</span> Mod &nbsp; <span class="text-slate-300 font-medium">Versión:</span> Universal
+                                </div>
+                                <p class="text-slate-500 text-xs pt-0.5">Efectos visuales y paquetes de hologramas personalizados.</p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 uppercase shrink-0">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ONLINE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2.5 pt-1">
+                        <a href="https://www.mediafire.com/file/ulsuy5on9vngrws/HOLOG.3105/file" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-blue-600/20">
+                            Descargar recurso
+                        </a>
+                        <span class="text-[10px] font-mono px-2.5 py-1.5 bg-[#0b1429] border border-[#1a2b4d] text-slate-400 rounded-lg uppercase">MODS</span>
+                        <button onclick="toggleSave('res-6', this)" class="save-btn px-3 py-1.5 bg-[#0b1429] hover:bg-[#111f3d] border border-[#1a2b4d] text-slate-300 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-regular fa-star text-xs"></i> <span>Guardar</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="border-t border-[#162442]/60 py-6 text-center text-xs text-slate-500 font-mono">
+            109 Cheats © 2026 • Todos los derechos reservados
+        </footer>
+    </div>
+
+    <!-- SCRIPT DE CONTROL Y VALIDACIÓN DE KEYS CON HASHING SHA-256 SEGURO -->
+    <script>
+        const encodedSingleKeys = [
+            "MTA5LUZGLUtvMS1Y", "MTA5LUZGLUtvMi1Y", "MTA5LUZGLUtvMy1Y", "MTA5LUZGLUtvNC1Y", "MTA5LUZGLUtvNS1Y",
+            "MTA5LUZGLUtvNi1Y", "MTA5LUZGLUtvNy1Y", "MTA5LUZGLUtvOC1Y", "MTA5LUZGLUtvOS1Y", "MTA5LUZGLUtvMTAtWA==",
+            "MTA5LUZGLUtvMTEtWA==", "MTA5LUZGLUtvMTItWA==", "MTA5LUZGLUtvMTMtWA==", "MTA5LUZGLUtvMTQtWA==", "MTA5LUZGLUtvMTUtWA==",
+            "MTA5LUZGLUtvMTYtWA==", "MTA5LUZGLUtvMTctWA==", "MTA5LUZGLUtvMTgtWA==", "MTA5LUZGLUtvMTktWA==", "MTA5LUZGLUtvMjAtWA==",
+            "MTA5LUZGLUtvMjEtWA==", "MTA5LUZGLUtvMjItWA==", "MTA5LUZGLUtvMjMtWA==", "MTA5LUZGLUtvMjQtWA==", "MTA5LUZGLUtvMjUtWA==",
+            "MTA5LUZGLUtvMjYtWA==", "MTA5LUZGLUtvMjctWA==", "MTA5LUZGLUtvMjgtWA==", "MTA5LUZGLUtvMjktWA==", "MTA5LUZGLUtvMzAtWA==",
+            "MTA5LUZGLUtvMzEtWA==", "MTA5LUZGLUtvMzItWA==", "MTA5LUZGLUtvMzMtWA==", "MTA5LUZGLUtvMzQtWA==", "MTA5LUZGLUtvMzUtWA==",
+            "MTA5LUZGLUtvMzYtWA==", "MTA5LUZGLUtvMzctWA==", "MTA5LUZGLUtvMzgtWA==", "MTA5LUZGLUtvMzktWA==", "MTA5LUZGLUtvNDAtWA==",
+            "MTA5LUZGLUtvNDEtWA==", "MTA5LUZGLUtvNDItWA==", "MTA5LUZGLUtvNDMtWA==", "MTA5LUZGLUtvNDQtWA==", "MTA5LUZGLUtvNDUtWA==",
+            "MTA5LUZGLUtvNDYtWA==", "MTA5LUZGLUtvNDctWA==", "MTA5LUZGLUtvNDgtWA==", "MTA5LUZGLUtvNDktWA==", "MTA5LUZGLUtvNTAtWA=="
+        ];
+
+        const encodedVipKeys = [
+            "MTA5LVZJUC1JTkZJTklURS1PTkU=",
+            "MTA5LVZJUC1JTkZJTklURS1UV08=",
+            "MTA5LVZJUC1JTkZJTklURS1USFJFRQ=="
+        ];
+
+        function decodeKey(base64Str) {
+            try {
+                return atob(base64Str);
+            } catch (e) {
+                return "";
+            }
+        }
+
+        function getDecodedList(encodedArray) {
+            return encodedArray.map(item => decodeKey(item));
+        }
+
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        function getUsedKeys() {
+            let used = localStorage.getItem('109_used_keys');
+            return used ? JSON.parse(used) : [];
+        }
+
+        function getSavedResources() {
+            let saved = localStorage.getItem('109_saved_resources');
+            return saved ? JSON.parse(saved) : [];
+        }
+
+        function openKeyModal() {
+            document.getElementById('key-modal').classList.remove('hidden');
+            document.getElementById('key-error').classList.add('hidden');
+            document.getElementById('key-input').value = '';
+            setTimeout(() => document.getElementById('key-input').focus(), 100);
+        }
+
+        function closeKeyModal() {
+            document.getElementById('key-modal').classList.add('hidden');
+        }
+
+        async function verifyKey(event) {
+            event.preventDefault();
+            const inputVal = document.getElementById('key-input').value.trim();
+            const errorDiv = document.getElementById('key-error');
+            const errorText = document.getElementById('error-text');
+
+            const vipKeysDecoded = getDecodedList(encodedVipKeys);
+            const singleKeysDecoded = getDecodedList(encodedSingleKeys);
+
+            if (vipKeysDecoded.includes(inputVal)) {
+                document.getElementById('active-plan-label').textContent = "Gratis";
+                unlockPanel();
+                return;
+            }
+
+            if (singleKeysDecoded.includes(inputVal)) {
+                let usedKeys = getUsedKeys();
+                if (usedKeys.includes(inputVal)) {
+                    errorText.textContent = "Esta key ya ha sido utilizada anteriormente.";
+                    errorDiv.classList.remove('hidden');
+                } else {
+                    usedKeys.push(inputVal);
+                    localStorage.setItem('109_used_keys', JSON.stringify(usedKeys));
+                    document.getElementById('active-plan-label').textContent = "Gratis";
+                    unlockPanel();
+                }
+                return;
+            }
+
+            errorText.textContent = "Key inválida o inexistente. Intenta con otra.";
+            errorDiv.classList.remove('hidden');
+        }
+
+        function unlockPanel() {
+            closeKeyModal();
+            document.getElementById('landing-page').classList.add('hidden');
+            const mainPanel = document.getElementById('main-panel');
+            mainPanel.classList.remove('hidden');
+            mainPanel.classList.add('flex');
+            loadSavedState();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function returnToLanding() {
+            document.getElementById('main-panel').classList.add('hidden');
+            document.getElementById('main-panel').classList.remove('flex');
+            document.getElementById('landing-page').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function logoutPanel() {
+            returnToLanding();
+        }
+
+        function filterByCategory(category) {
+            document.getElementById('device-filter').value = category;
+            filterResources();
+        }
+
+        function toggleSave(resId, btnElement) {
+            let saved = getSavedResources();
+            const icon = btnElement.querySelector('i');
+            const text = btnElement.querySelector('span');
+
+            if (saved.includes(resId)) {
+                saved = saved.filter(id => id !== resId);
+                icon.className = "fa-regular fa-star text-xs";
+                text.textContent = "Guardar";
+                btnElement.classList.remove('border-blue-500/50', 'text-blue-400');
+            } else {
+                saved.push(resId);
+                icon.className = "fa-solid fa-star text-xs text-blue-400";
+                text.textContent = "Guardado";
+                btnElement.classList.add('border-blue-500/50', 'text-blue-400');
+            }
+
+            localStorage.setItem('109_saved_resources', JSON.stringify(saved));
+            if (document.getElementById('device-filter').value === 'saved') {
+                filterResources();
+            }
+        }
+
+        function loadSavedState() {
+            const saved = getSavedResources();
+            document.querySelectorAll('.resource-card').forEach(card => {
+                const resId = card.getAttribute('data-id');
+                const btn = card.querySelector('.save-btn');
+                const icon = btn.querySelector('i');
+                const text = btn.querySelector('span');
+
+                if (saved.includes(resId)) {
+                    icon.className = "fa-solid fa-star text-xs text-blue-400";
+                    text.textContent = "Guardado";
+                    btn.classList.add('border-blue-500/50', 'text-blue-400');
+                }
+            });
+        }
+
+        function filterResources() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const categoryFilter = document.getElementById('device-filter').value;
+            const saved = getSavedResources();
+            const cards = document.querySelectorAll('.resource-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const resId = card.getAttribute('data-id');
+                const name = card.getAttribute('data-name');
+                const cardCategory = card.getAttribute('data-category');
+                const fullText = card.textContent.toLowerCase();
+                
+                const matchesSearch = name.includes(query) || fullText.includes(query);
+                const matchesCategory = 
+                    categoryFilter === 'all' || 
+                    (categoryFilter === 'saved' && saved.includes(resId)) ||
+                    cardCategory === categoryFilter;
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('resource-count').textContent = visibleCount;
+        }
+    </script>
+</body>
+</html>
